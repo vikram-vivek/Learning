@@ -1,0 +1,42 @@
+html, body
+{
+    height: 98%;
+    width: 99%;
+}
+
+h1{
+  font-family: 'gilbert-color-bold-preview5';
+  text-align: center;
+}
+
+th{
+  height: 90vh;
+  width: 17%;
+  padding-left: 100px;
+  padding-right: 100px;
+  border: 2px solid white;
+}
+
+#one{
+  background: #E70000;
+}
+
+#two{
+  background: #FF8C00;
+}
+
+#three{
+  background: #FFEF00;
+}
+
+#four{
+  background: #00811F;
+}
+
+#five{
+  background: #0044FF;
+}
+
+#six{
+  background: #760089;
+}
