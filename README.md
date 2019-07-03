@@ -16,5 +16,9 @@ CSS_Level_One - color (name, rgb, hex, rgba), background, border, border-style, 
 ----------------
 Date:03-Jul-2019
 ----------------
-
 CSS_Level_Two - font-family, font-size, font-style, font-weight, (content, padding, boader, margin), (top, right, bottom, left), link fonts
+
+----------------
+Date:04-Jul-2019
+----------------
+Bootstrap - navbar, navbar-inverse, grid, col-lg-3, col-md-4, col-xs-6 jumbotron, form-group, form-control, Putting a Checkbox label just after the chekbox.
