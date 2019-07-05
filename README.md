@@ -22,3 +22,8 @@ CSS_Level_Two - font-family, font-size, font-style, font-weight, (content, paddi
 Date:04-Jul-2019
 ----------------
 Bootstrap - navbar, navbar-inverse, grid, col-lg-3, col-md-4, col-xs-6 jumbotron, form-group, form-control, Putting a Checkbox label just after the chekbox.
+
+----------------
+Date:05-Jul-2019
+----------------
+JavaScript_Level_One - alert, console.log, var, prompt, operators (== vs ===) (!==) Also (!!, !!! etc is still valid syntax), if {} else if {} else {}, loops (while, for)
