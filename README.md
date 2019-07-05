@@ -27,3 +27,5 @@ Bootstrap - navbar, navbar-inverse, grid, col-lg-3, col-md-4, col-xs-6 jumbotron
 Date:05-Jul-2019
 ----------------
 JavaScript_Level_One - alert, console.log, var, prompt, operators (== vs ===) (!==) Also (!!, !!! etc is still valid syntax), if {} else if {} else {}, loops (while, for)
+
+JavaScript_Level_Two - function, arrays [] (push,pop, splice(index,no_of_element_to_be_removed), objects {key:'value'})
