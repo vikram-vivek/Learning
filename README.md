@@ -35,3 +35,8 @@ Date:06-Jul-2019
 ----------------
 Document_Object_Model - document, attributes - (url, body, head, links),  methods - (getElementbyId, getElementByTagName, getElementByClassName, querySelector, querySelectorAll),
 textCOntent, innerHTML, getAttribute, setAttribute, Events (addEventListener (mouseover, mouseout, click, dblclick))
+
+----------------
+Date:08-Jul-2019
+----------------
+Python_Level_One - Numbers, String, Lists, Dictionary, Tuple, Set, Boolean
