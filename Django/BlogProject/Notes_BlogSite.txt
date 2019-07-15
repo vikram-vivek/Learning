@@ -37,3 +37,27 @@ Post
 Comment
     Fields - post, author, text, creation_date, approve_comment
     Methods - approve, get_absolute_url, __str__
+
+==========================
+Blog_Clone_Project_Part_03
+==========================
+
+Creating Forms
+PostForm
+CommentForm
+
+Note added widgets in Meta() to alter the css
+
+Create static folder in blog app folder
+static -> css and js subfolders
+This is done to make the app more 'plug n play'
+
+Update the setting.py file
+Add the STATIC_ROOT
+
+Create templates folder in blog app
+templates -> blog and registration subfolders used for CBV
+
+Update the setting.py file
+Add the TEMPLATES_DIR, LOGIN_REDIRECT_URL
+Add the TEMPLATES_DIR in the list TEMPLATES
