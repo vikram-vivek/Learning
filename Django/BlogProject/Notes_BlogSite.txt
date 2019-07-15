@@ -1,0 +1,27 @@
+My Blog Site Django Notes
+
+==========================
+Blog_Clone_Project_Part_01
+==========================
+##Creating Virutal Env
+conda create -n MyBlogSiteEnv python=3.6 django=1.11
+
+##Activate env
+activate MyBlogSiteEnv
+
+##Start Project
+django-admin startproject mysite
+
+##Start App
+django-admin startapp blog
+
+##Create 2 files under blog folder
+urls.py and forms.py
+
+##Register the app blog in the settings.py of mysite
+
+##python manage.py migrate
+
+##python manage.py makemigrations blog
+
+##python manage.py runserver
