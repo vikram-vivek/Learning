@@ -29,3 +29,14 @@ Date:05-Jul-2019
 JavaScript_Level_One - alert, console.log, var, prompt, operators (== vs ===) (!==) Also (!!, !!! etc is still valid syntax), if {} else if {} else {}, loops (while, for)
 
 JavaScript_Level_Two - function, arrays [] (push,pop, splice(index,no_of_element_to_be_removed), objects {key:'value'})
+
+----------------
+Date:06-Jul-2019
+----------------
+Document_Object_Model - document, attributes - (url, body, head, links),  methods - (getElementbyId, getElementByTagName, getElementByClassName, querySelector, querySelectorAll),
+textCOntent, innerHTML, getAttribute, setAttribute, Events (addEventListener (mouseover, mouseout, click, dblclick))
+
+----------------
+Date:08-Jul-2019
+----------------
+Python_Level_One - Numbers, String, Lists, Dictionary, Tuple, Set, Boolean
