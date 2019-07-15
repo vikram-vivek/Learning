@@ -25,3 +25,15 @@ urls.py and forms.py
 ##python manage.py makemigrations blog
 
 ##python manage.py runserver
+
+==========================
+Blog_Clone_Project_Part_02
+==========================
+
+Creating the blog models
+Post
+    Fields - author, title, text, creation_date, published_date
+    Methods - publish, approve_comments, get_absolute_url, __str__
+Comment
+    Fields - post, author, text, creation_date, approve_comment
+    Methods - approve, get_absolute_url, __str__
