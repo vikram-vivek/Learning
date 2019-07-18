@@ -61,3 +61,17 @@ templates -> blog and registration subfolders used for CBV
 Update the setting.py file
 Add the TEMPLATES_DIR, LOGIN_REDIRECT_URL
 Add the TEMPLATES_DIR in the list TEMPLATES
+
+==========================
+Blog_Clone_Project_Part_04
+==========================
+
+Adding views
+Link blog->urls.py to main mysite->urls.py
+AboutView -> created a class in views.py with TemplateView, added a url in urls.py, created a html file about.html
+PostListView -> created a class with ListView, added the model Post and override custom filter get_quesryset to return latest post first using published_date__lte, added the url
+PostDetailView -> using DetailView, linked to model Post, created a url post/(?P<pk>\d+)$
+CreatePostView -> used LoginRequiredMixin and CreateView, linked the login_url and redirect_field_name then form_class and model
+UpdatePostView -> used LoginRequiredMixin and UpdateView, linked the login_url and redirect_field_name then form_class and model
+DeletePostView -> used LoginRequiredMixin and DeleteView, used reverse_lazy to go to post_list
+DraftListView -> used LoginRequiredMixin and ListView, to filter all Post objects which have published_date__isnull=True and order_by created_date
