@@ -75,3 +75,16 @@ CreatePostView -> used LoginRequiredMixin and CreateView, linked the login_url a
 UpdatePostView -> used LoginRequiredMixin and UpdateView, linked the login_url and redirect_field_name then form_class and model
 DeletePostView -> used LoginRequiredMixin and DeleteView, used reverse_lazy to go to post_list
 DraftListView -> used LoginRequiredMixin and ListView, to filter all Post objects which have published_date__isnull=True and order_by created_date
+
+==========================
+Blog_Clone_Project_Part_05
+==========================
+
+Create empty html files-
+templates->blog->post_list.html, post_draft_list.html, post_form.html, post_detail.html,post_confirm_delete.html,comment_form.html
+registration->login.html
+
+Added views-
+post_publish, add_comment_to_post, comment_approve, comment_remove
+
+Added urls corresponding to views
