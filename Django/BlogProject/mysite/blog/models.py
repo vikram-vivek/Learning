@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils import timezone
-from django.core.utlresolvers import reverse
+from django.core.urlresolvers import reverse
 
 # Create your models here.
 
@@ -8,7 +8,7 @@ class Post(models.Model):
     author = models.ForeignKey('auth.user')
     title = models.CharField(max_length=200)
     text = models.TextField()
-    creation_date = models.DateTimeField(default=timezone.now())
+    created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True,null=True)
 
     def publish(self):
@@ -25,7 +25,7 @@ class Post(models.Model):
         return self.title
 
 class Comment(models.Model):
-    post = models.ForeignKey('blog.Post',related_name='coments')
+    post = models.ForeignKey('blog.Post',related_name='comments')
     author = models.CharField(max_length=200)
     text = models.TextField()
     creation_date = models.DateTimeField(default=timezone.now())
@@ -33,7 +33,7 @@ class Comment(models.Model):
 
     def approve(self):
         self.approve_comment = True
-        self.save
+        self.save()
 
     def get_absolute_url(self):
         return reverse('post_list')
