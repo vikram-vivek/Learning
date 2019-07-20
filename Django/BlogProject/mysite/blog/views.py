@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import (TemplateView, ListView,
                                     DetailView, CreateView,
-                                    UpdateView)
+                                    UpdateView, DeleteView)
 
 # Create your views here.
 
@@ -53,7 +53,7 @@ class DraftListView(LoginRequiredMixin,ListView):
 @login_required
 def post_publish(request,pk):
     post = get_object_or_404(Post,pk=pk)
-    post.publish
+    post.publish()
     return redirect('post_detail',pk=pk)
 
 
@@ -64,7 +64,7 @@ def add_comment_to_post(request,pk):
         form = CommentForm(request.POST)
         if form.is_valid():
             comment = form.save(commit=False)
-            Comment.post = Post
+            comment.post = post
             comment.save()
             return redirect('post_detail', pk=post.pk)
     else:

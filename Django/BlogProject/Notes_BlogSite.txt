@@ -1,4 +1,10 @@
 My Blog Site Django Notes
+==========================
+Setup
+==========================
+Python 3.6
+Django 1.11
+Bootstrap 3.3.7
 
 ==========================
 Blog_Clone_Project_Part_01
@@ -115,3 +121,28 @@ Blog_Clone_Project_Part_09
 Finished following html
 post_form.html, post_draft_list.html, post_confirm_delete.html and comment_form.html
 CSS changes are listed in Part_07
+
+==========================
+Blog_Clone_Project_Part_10
+==========================
+Putting all pieces together
+>python manage.py migrate
+removed minor typos
+>python manage.py makemigrations blog
+
+>python manage.py createsuperuser
+
+register the models in admin.py
+
+Invalid block tag on line 14: 'form.as_p', expected 'endblock'. Did you forget to register or load this tag?
+=> Wrong call of form. correct way  {{ form.as_p }}
+
+typos are very much the problem.
+Post vs post
+Comment vs comment
+
+When CSS is not rendering check the div class
+
+How to debug?
+Check in following order.
+HTML/Templates -> URLs (Pattern) -> Views ->  Model

@@ -23,14 +23,14 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Russo+One&display=swap" rel="stylesheet">
 
   </head>
-  <body>
+  <body class="">
 
     <!-- Navbar -->
-    <nav class"navbar navbar-default techfont custom-navbar">
+    <nav class="navbar navbar-default techfont custom-navbar">
       <div class="container">
         <ul class="nav navbar-nav">
-          <li><a class="navbar-brand bigbrand" href="{% url post_list %}"></a> </li>
-          <li><a href="{% url about %}">About</a> </li>
+          <li><a class="navbar-brand bigbrand" href="{% url 'post_list' %}">My Tech Blog</a> </li>
+          <li><a href="{% url 'about' %}">About</a> </li>
           <li><a href="https://www.github.com">Github</a> </li>
           <li><a href="https://www.linkedin.com">LinkedIn</a> </li>
         </ul>
