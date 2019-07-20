@@ -108,3 +108,10 @@ Blog_Clone_Project_Part_08
 ==========================
 Updated the html templates. Added body block.
 Finished following -> about.html, post_list.html and post_detail.html
+
+==========================
+Blog_Clone_Project_Part_09
+==========================
+Finished following html
+post_form.html, post_draft_list.html, post_confirm_delete.html and comment_form.html
+CSS changes are listed in Part_07
