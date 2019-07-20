@@ -102,3 +102,9 @@ Update the base.html and blog.css
 Created Following blocks
 -Bootstrap, Medium Style Editor, Custom CSS, Fonts,
 -Navbar, Content Block
+
+==========================
+Blog_Clone_Project_Part_08
+==========================
+Updated the html templates. Added body block.
+Finished following -> about.html, post_list.html and post_detail.html
