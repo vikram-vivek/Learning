@@ -1,0 +1,46 @@
+My Social Site Project Notes
+=================================
+Setup
+=================================
+Python 3.6
+Django 1.11
+
+=================================
+Social_Site_Clone_Project_Part_01
+=================================
+##Creating Virutal Env
+conda create -n MySocialSiteEnv python=3.6 django=1.11
+
+##Activate env
+activate MySocialSiteEnv
+
+##Start Project
+django-admin startproject simplesocial
+
+##Change directory
+cd simplesocial
+
+##Start App
+django-admin startapp accounts
+
+##Create following files and folders
+simplesocial > static > css > master.css
+simplesocial > static > simplesocial > css
+simplesocial > static > simplesocial > js
+simplesocial > templates
+
+
+##Made following changes in the settings.py
+Added a variable TEMPLATE_DIR for templates,
+Added the TEMPLATE_DIR in DIR of TEMPLATES,
+Added the app name 'accounts' in INSTALLED_APPS,
+Added a variable STATICFILES_DIR
+
+##Run below scripts in sequence
+python manage.py migrate
+python manage.py makemigrations accounts
+python manage.py migrate
+python manage.py runserver
+
+##Go to this URL to check the site
+http://127.0.0.1:8000/
