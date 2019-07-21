@@ -40,3 +40,8 @@ textCOntent, innerHTML, getAttribute, setAttribute, Events (addEventListener (mo
 Date:08-Jul-2019
 ----------------
 Python_Level_One - Numbers, String, Lists, Dictionary, Tuple, Set, Boolean
+
+----------------
+Date:21-Jul-2019
+----------------
+Blog_Clone_Project  Django 1.11 and Python 3.6 Bootstrap 3.3.7
