@@ -44,3 +44,18 @@ python manage.py runserver
 
 ##Go to this URL to check the site
 http://127.0.0.1:8000/
+
+=================================
+Social_Site_Clone_Project_Part_02
+=================================
+Created below files
+templates -> base.html, index.html
+simplesocial -> views.py
+Updated
+simplesocial -> urls.py
+and Ran the server
+
+In accounts
+Created User in models.py,
+Created UserCreationForm in forms.py,
+Created SignUp in views.py
