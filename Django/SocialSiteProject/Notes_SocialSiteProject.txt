@@ -59,3 +59,25 @@ In accounts
 Created User in models.py,
 Created UserCreationForm in forms.py,
 Created SignUp in views.py
+
+=================================
+Social_Site_Clone_Project_Part_03
+=================================
+Install django-bootstrap3 Add in INSTALLED_APPS variable in settings.py
+Added files login.html and signup.html in templates folder
+Added the urls.py in accounts for login, logout and signup
+Updated urls.py in simplesocial for including the accounts url
+Updating the base.html
+
+=================================
+Social_Site_Clone_Project_Part_04
+=================================
+Created variables LOGIN_REDIRECT_URL, LOGOUT_REDIRECT_URL in settings.py
+Created test.html and thanks.html
+Added class TestPage and ThanksPage in views.py of socialsimple
+Added urls for Test and Thanks page
+
+python migrate and check navigation
+create a user by signup and login then logout
+Fix bugs - forgot to mention load staticfiles and
+html file should be templates -> appname -> html files
