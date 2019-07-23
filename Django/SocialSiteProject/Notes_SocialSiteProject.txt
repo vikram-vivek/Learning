@@ -81,3 +81,10 @@ python migrate and check navigation
 create a user by signup and login then logout
 Fix bugs - forgot to mention load staticfiles and
 html file should be templates -> appname -> html files
+
+=================================
+Social_Site_Clone_Project_Part_05
+=================================
+Created 2 apps
+posts and groups
+created skeleton files inside then apps - html and urls.py
