@@ -44,3 +44,69 @@ python manage.py runserver
 
 ##Go to this URL to check the site
 http://127.0.0.1:8000/
+
+=================================
+Social_Site_Clone_Project_Part_02
+=================================
+Created below files
+templates -> base.html, index.html
+simplesocial -> views.py
+Updated
+simplesocial -> urls.py
+and Ran the server
+
+In accounts
+Created User in models.py,
+Created UserCreationForm in forms.py,
+Created SignUp in views.py
+
+=================================
+Social_Site_Clone_Project_Part_03
+=================================
+Install django-bootstrap3 Add in INSTALLED_APPS variable in settings.py
+Added files login.html and signup.html in templates folder
+Added the urls.py in accounts for login, logout and signup
+Updated urls.py in simplesocial for including the accounts url
+Updating the base.html
+
+=================================
+Social_Site_Clone_Project_Part_04
+=================================
+Created variables LOGIN_REDIRECT_URL, LOGOUT_REDIRECT_URL in settings.py
+Created test.html and thanks.html
+Added class TestPage and ThanksPage in views.py of socialsimple
+Added urls for Test and Thanks page
+
+python migrate and check navigation
+create a user by signup and login then logout
+Fix bugs - forgot to mention load staticfiles and
+html file should be templates -> appname -> html files
+
+=================================
+Social_Site_Clone_Project_Part_05
+=================================
+Created 2 apps
+posts and groups
+created skeleton files inside then apps - html and urls.py
+
+=================================
+Social_Site_Clone_Project_Part_06
+=================================
+Updated models.py in groups and posts.
+slugify, misaka, (Meta - unique_together),
+
+=================================
+Social_Site_Clone_Project_Part_07
+=================================
+Updated the following files
+views.py -> created 3 views CreateGroup, SingleGroup and ListGroups
+group_base.html
+group_detail.html
+group_list.html
+group_form.html
+
+=================================
+Social_Site_Clone_Project_Part_08
+=================================
+Updated the urls.py and admin.py
+Inline ==> TabularInline
