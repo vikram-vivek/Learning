@@ -94,3 +94,13 @@ Social_Site_Clone_Project_Part_06
 =================================
 Updated models.py in groups and posts.
 slugify, misaka, (Meta - unique_together),
+
+=================================
+Social_Site_Clone_Project_Part_07
+=================================
+Updated the following files
+views.py -> created 3 views CreateGroup, SingleGroup and ListGroups
+group_base.html
+group_detail.html
+group_list.html
+group_form.html
