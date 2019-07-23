@@ -88,3 +88,9 @@ Social_Site_Clone_Project_Part_05
 Created 2 apps
 posts and groups
 created skeleton files inside then apps - html and urls.py
+
+=================================
+Social_Site_Clone_Project_Part_06
+=================================
+Updated models.py in groups and posts.
+slugify, misaka, (Meta - unique_together),
