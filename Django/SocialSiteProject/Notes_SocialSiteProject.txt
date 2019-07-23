@@ -104,3 +104,9 @@ group_base.html
 group_detail.html
 group_list.html
 group_form.html
+
+=================================
+Social_Site_Clone_Project_Part_08
+=================================
+Updated the urls.py and admin.py
+Inline ==> TabularInline
