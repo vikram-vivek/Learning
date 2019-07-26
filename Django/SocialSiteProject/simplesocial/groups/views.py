@@ -6,8 +6,8 @@ from django.contrib.auth.mixins import (LoginRequiredMixin,
 
 from django.core.urlresolvers import reverse
 from django.views import generic
-
-fromdjango.shortcuts import get_object_or_404
+from django.contrib import messages
+from django.shortcuts import get_object_or_404
 from groups.models import Group, GroupMember
 
 class CreateGroup(LoginRequiredMixin,generic.CreateView):
@@ -45,13 +45,13 @@ class LeaveGroup(LoginRequiredMixin,generic.RedirectView):
     def get(self,*args,**kwargs):
 
         try:
-            membership = odels.GroupMember.objects.filter(
+            membership = GroupMember.objects.filter(
                 user=self.request.user,
                 group__slug=self.kwargs.get('slug')
             ).get()
-        except models.GroupMember.DoesNotExist:
+        except GroupMember.DoesNotExist:
             messages.warning(self.request,'Sorry you are not in this group!')
         else:
             membership.delete()
             messages.success(self.request,'You have left the group!')
-        return super().get(request,*args,**kwargs)
+        return super().get(self.request,*args,**kwargs)

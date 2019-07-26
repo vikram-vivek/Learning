@@ -135,3 +135,25 @@ Social_Site_Clone_Project_Part_11
 Created two views in Groups APP
 JoinGroup
 LeaveGroup
+
+=================================
+Social_Site_Clone_Project_Part_12
+=================================
+Add groups and posts in INSTALLED_APPS
+Update the base.html with missing urls
+
+Learning
+Major typos
+{% if user.is_auhthenticated and post.user == user %}
+above was not working because it was misspelt is_authenticated
+
+Look for urls
+in regex is a difference between w and W => [-\w]
+
+column name was missing in the models.py
+
+=================================
+Social_Site_Clone_Project_Part_13
+=================================
+Added css and js files
+canvas

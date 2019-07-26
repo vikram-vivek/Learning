@@ -4,7 +4,7 @@ from django.conf import settings
 # Create your models here.
 #posts model.py
 import misaka
-from groups.model import Group
+from groups.models import Group
 
 from django.contrib.auth import get_user_model
 User = get_user_model()
