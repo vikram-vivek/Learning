@@ -1,8 +1,8 @@
 li a {
-    color: green;
+    color: black;
 }
 h1 {
-    color: red;
+    color: rgb(49, 50, 97);
 }
 body {
     background: white url("images/background.gif") no-repeat;
