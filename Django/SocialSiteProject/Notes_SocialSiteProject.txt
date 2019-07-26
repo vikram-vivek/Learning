@@ -110,3 +110,28 @@ Social_Site_Clone_Project_Part_08
 =================================
 Updated the urls.py and admin.py
 Inline ==> TabularInline
+
+=================================
+Social_Site_Clone_Project_Part_09
+=================================
+pip install django-braces
+Updated Posts Views.py and Urls.py
+Classes - PostList, UserPosts, PostDetail, CreatePost, DeletePost
+
+=================================
+Social_Site_Clone_Project_Part_10
+=================================
+post_base.html
+post_form.html
+post_list.html
+_post.html
+post_confirm_delete.html
+post_detail.html
+user_post_list.html
+
+=================================
+Social_Site_Clone_Project_Part_11
+=================================
+Created two views in Groups APP
+JoinGroup
+LeaveGroup
