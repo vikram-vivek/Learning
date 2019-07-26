@@ -151,3 +151,9 @@ Look for urls
 in regex is a difference between w and W => [-\w]
 
 column name was missing in the models.py
+
+=================================
+Social_Site_Clone_Project_Part_13
+=================================
+Added css and js files
+canvas
