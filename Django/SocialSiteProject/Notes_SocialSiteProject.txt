@@ -117,3 +117,14 @@ Social_Site_Clone_Project_Part_09
 pip install django-braces
 Updated Posts Views.py and Urls.py
 Classes - PostList, UserPosts, PostDetail, CreatePost, DeletePost
+
+=================================
+Social_Site_Clone_Project_Part_10
+=================================
+post_base.html
+post_form.html
+post_list.html
+_post.html
+post_confirm_delete.html
+post_detail.html
+user_post_list.html
