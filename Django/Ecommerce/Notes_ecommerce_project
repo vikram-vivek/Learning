@@ -1,0 +1,29 @@
+E-Commerce Project Notes
+===============================
+Setup
+===============================
+Python 3.6
+Django 1.11
+
+===============================
+Ecommerce_Clone_Project_Part_01
+===============================
+##Creating Virutal Env
+conda create -n EcommerceEnv python=3.6 django=1.11
+
+##Activate env
+activate EcommerceEnv
+
+##Start Project
+django-admin startproject ecommerce
+
+##Change directory
+cd ecommerce
+
+python manage.py runserver
+
+##Go to this URL to check the site
+http://127.0.0.1:8000/
+
+Some Basic HTML and view update
+Hello World Page

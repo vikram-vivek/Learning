@@ -157,3 +157,12 @@ Social_Site_Clone_Project_Part_13
 =================================
 Added css and js files
 canvas
+
+=================================
+Social_Site_Clone_Project_Part_14
+=================================
+Adding debugging tool
+'debug_toolbar' in INSTALLED_APPS
+update the urls.py
+'debug_toolbar.middleware.DebugToolbarMiddleware' in MIDDLEWARE
+Add INTERNAL_IPS = ['127.0.0.1'] to make it accessible only to localserver
