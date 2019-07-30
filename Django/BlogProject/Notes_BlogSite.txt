@@ -146,3 +146,12 @@ When CSS is not rendering check the div class
 How to debug?
 Check in following order.
 HTML/Templates -> URLs (Pattern) -> Views ->  Model
+
+==========================
+Blog_Clone_Project_Part_11
+==========================
+Adding debugging tool
+'debug_toolbar' in INSTALLED_APPS
+update the urls.py
+'debug_toolbar.middleware.DebugToolbarMiddleware' in MIDDLEWARE
+Add INTERNAL_IPS = ['127.0.0.1'] to make it accessible only to localserver
