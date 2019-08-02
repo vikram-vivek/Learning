@@ -1,0 +1,30 @@
+My Blog Site Django Notes
+==========================
+Setup
+==========================
+Python 3.6
+Django 1.11
+Bootstrap 3.3.7
+
+==========================
+Art_Museum_Project_Part_01
+==========================
+##Creating Virutal Env
+conda create -n ArtMuseumSiteEnv python=3.7.3 django=2.2.1
+
+##Activate env
+activate ArtMuseumSiteEnv
+
+##Start Project
+django-admin startproject artmuseumsite
+
+##Start App
+django-admin startapp artgallery
+
+##Register the artgallery blog in the settings.py of mysite
+
+##python manage.py migrate
+
+##python manage.py makemigrations artgallery
+
+##python manage.py runserver
