@@ -1,7 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 import os
 from .forms import LoginForm
+from django.contrib.auth import authenticate,login
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def index(request):
@@ -24,6 +26,17 @@ def login_page(request):
     }
     if form.is_valid():
         print(form.cleaned_data)
+        username = form.cleaned_data.get("username")
+        password = form.cleaned_data.get("password")
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            print("User is Logged In : %s"%request.user.is_authenticated)
+            login(request,user)
+            context['form'] = LoginForm()
+            return redirect("/login")
+        else:
+            print("Error")
+
     return render(request, "auth/login.html", context)
 
 def register_page(request):
