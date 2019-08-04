@@ -1,0 +1,28 @@
+Music App Django Notes
+==========================
+Setup
+==========================
+Python 3.7
+Django 2.2
+Bootstrap 3.3.7
+
+==========================
+Music_App_Project_Part_01
+==========================
+##Creating Virutal Env
+conda create -n MusicAppEnv python=3.7 django=2.2
+
+##Activate env
+activate MusicAppEnv
+
+##Start App
+django-admin startapp musicplayer
+
+##Run the server
+python manage.py runserver
+
+==========================
+Music_App_Project_Part_02
+==========================
+Created Music Player
+Creating Login
