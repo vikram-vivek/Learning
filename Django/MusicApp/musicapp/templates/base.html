@@ -8,28 +8,15 @@
   <body>
     <h1>Playing Music</h1>
     {% if request.user.is_authenticated %}
-      <audio controls>
+      <audio controls id="myAudio">
         <source src="{% static "Numb.mp3" %}" type="audio/mp3">
         Your browser does not support the audio element.
       </audio>
       <br>
-      <audio controls id="myAudio">
-        <source src="https://www.soundjay.com/misc/bell-ringing-01.mp3" type="audio/mp3">
-        Your browser does not support the audio element.
-      </audio>
       <button onclick="playAudio()" type="button">Play Audio</button>
       <button onclick="pauseAudio()" type="button">Pause Audio</button>
     {% endif %}
-    <script>
-      var x = document.getElementById("myAudio");
-
-      function playAudio() {
-        x.play();
-      }
-
-      function pauseAudio() {
-        x.pause();
-      }
-    </script>
   </body>
+  <script type="text/javascript" src="{% static "musicapp/js/master.js" %}">
+  </script>
 </html>

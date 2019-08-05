@@ -27,3 +27,4 @@ Music_App_Project_Part_02
 Created Music Player
 Creating Login
 Adding button controls
+Separated the scripts
