@@ -10,13 +10,17 @@ def index(request):
     return HttpResponse("Hello World!")
 
 def explorer(request):
-    path = 'E:\MusicFiles'
+    path = 'static\\musicapp\\audiofiles'
     file_list = os.listdir(path)
     return HttpResponse("List of files %s "%file_list)
 
 def playsong(request):
-    path = 'E:/Numb.mp3'
-    return render(request,'base.html')
+    path = 'static\\musicapp\\audiofiles'
+    song_list = os.listdir(path)
+    context = {
+        'song_list':song_list
+    }
+    return render(request,'base.html',context)
 
 def login_page(request):
     form = LoginForm(request.POST or None)
