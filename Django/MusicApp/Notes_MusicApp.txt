@@ -29,3 +29,4 @@ Creating Login
 Adding button controls
 Separated the scripts
 Added Next and Previous button functionality
+Creating RegisterForm

@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from musicplayer.views import index,explorer,playsong,login_page
+from musicplayer.views import index,explorer,playsong,login_page,register_page
 
 from django.conf import settings
 from django.conf.urls.static import static
@@ -25,6 +25,7 @@ urlpatterns = [
     path('explorer/', explorer),
     path('playsong/', playsong),
     path('login/', login_page),
+    path('register/', register_page),
     path('admin/', admin.site.urls),
     #static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT),
 ]
