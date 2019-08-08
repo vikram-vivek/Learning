@@ -1,0 +1,10 @@
+{% extends "musicplayer/base.html" %}
+{% block content %}
+<div class="centerstage">
+  {% for track in track_list %}
+  <div class="track">
+    <h1><a href="{% url 'track_detail' pk=track.pk %}">{{track.track_id}}</a> </h1>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

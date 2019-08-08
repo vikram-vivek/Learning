@@ -1,0 +1,59 @@
+@import "common/variables";
+@import "~bootstrap/scss/bootstrap";
+
+header {
+    height: 60px;
+
+    .navbar {
+        height: 100%;
+    }
+}
+
+footer {
+    height: 100px;
+
+    .navbar {
+        height: 100%;
+
+        #title {
+            white-space: nowrap;
+            color: theme-color(light);
+            top: 13px;
+            left: 80px;
+        }
+
+        #artist {
+            top: 33px;
+            left: 80px;
+            font-size: 12px;
+            font-weight: 100;
+            color: theme-color(color-white);
+        }
+
+        .progress {
+            height: 4px;
+            background-color: theme-color(primary);
+        }
+
+        .player-controller {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+
+            a {
+                color: theme-color(light);
+            }
+        }
+    }
+}
+
+main {
+    padding-top: 60px;
+    padding-bottom: 100px;
+
+    .banner {
+        height: 400px;
+        background: rgb(116, 35, 55);
+        background: linear-gradient(58deg, rgba(116, 35, 55, 1) 0%, rgba(124, 27, 51, 1) 24%, rgba(140, 36, 117, 1) 78%, rgba(145, 44, 69, 1) 100%);
+    }
+}
