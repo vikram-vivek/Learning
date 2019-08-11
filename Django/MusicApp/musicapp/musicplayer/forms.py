@@ -1,5 +1,6 @@
 from django import forms
 from django.contrib.auth import get_user_model
+from musicplayer.models import Event,Track
 
 User = get_user_model()
 
@@ -27,3 +28,15 @@ class RegisterForm(forms.Form):
         if password2 != password:
             raise forms.ValidationError("Passwords did not match")
         return data
+
+class TrackForm(forms.ModelForm):
+
+    class Meta:
+        model = Track
+        fields = ('track_id','track_location')
+
+class EventForm(forms.ModelForm):
+
+    class Meta:
+        model = Event
+        fields = ('user_id','track_id','track_start_time','track_end_time')

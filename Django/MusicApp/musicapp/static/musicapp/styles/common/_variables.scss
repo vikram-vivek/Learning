@@ -1,0 +1,20 @@
+// THEME
+$primary : #742337;
+$secondary: #912C45;
+$info: #421420;
+$dark :#151515;
+$color-black : #000000;
+$light: #F4F4F4;
+$color-white : #FFFFFF;
+
+
+$theme-colors: ("primary" : $primary,
+    "secondary": $secondary,
+    "info": $info,
+    "dark" : $dark,
+    "light" : $light,
+    "color-black" : $color-black,
+    "color-white": $color-white);
+
+
+$enable-rounded : false

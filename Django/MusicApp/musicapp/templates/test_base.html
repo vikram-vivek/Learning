@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<body>
+<p>{{ music_url }}</p>
+<audio id="myAudio" controls>
+  <!-- <source src="https://drive.google.com/file/d/1iETMqDfT2c7zwzIDJdo2_DW5o95k85Ke/view?usp=sharing" type="audio/mpeg"> -->
+  <!-- <source src="https://doc-00-1o-docs.googleusercontent.com/docs/securesc/m7imn1c8aqfhf7gdcn8l3h8q9urnp1un/hv86gadpj7allpg60v3b33at70otg8u3/1565287200000/13759712319618516183/13759712319618516183/1iETMqDfT2c7zwzIDJdo2_DW5o95k85Ke?e=download" type="audio/mp3"> -->
+  <source src="{{ music_url|safe }}" type="audio/mp3">
+  Your browser does not support the audio element.
+</audio><br>
+
+<button onclick="getCurTime()" type="button">Get current time position</button>
+<button onclick="setCurTime()" type="button">Set time position to 1 second</button>
+
+<script>
+var x = document.getElementById("myAudio");
+function getCurTime() {
+  alert(x.currentTime);
+}
+
+function setCurTime() {
+  x.currentTime = 5;
+  alert(x.currentTime);
+}
+</script>
+
+</body>
+</html>

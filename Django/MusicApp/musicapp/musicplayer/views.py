@@ -4,10 +4,17 @@ import os
 from .forms import LoginForm,RegisterForm
 from django.contrib.auth import authenticate,login,get_user_model
 from django.contrib.auth.decorators import login_required
-
+from django.views import generic
+from .models import Event,Track
+from .forms import EventForm, TrackForm
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.urls import reverse_lazy
 # Create your views here.
 def index(request):
-    return render(request,'test_base.html')
+    context = {
+        'music_url':"https://doc-00-1o-docs.googleusercontent.com/docs/securesc/m7imn1c8aqfhf7gdcn8l3h8q9urnp1un/hv86gadpj7allpg60v3b33at70otg8u3/1565287200000/13759712319618516183/13759712319618516183/1iETMqDfT2c7zwzIDJdo2_DW5o95k85Ke?e=download"
+    }
+    return render(request,'test_base.html',context)
     #return HttpResponse("Hello World!")
 
 def explorer(request):
@@ -59,3 +66,38 @@ def register_page(request):
         print(new_user)
         return redirect("/login")
     return render(request, "auth/register.html", context)
+
+class TrackListView(generic.ListView):
+    model = Track
+
+class TrackDetailView(generic.DetailView):
+    model = Track
+
+class CreateTrackView(LoginRequiredMixin,generic.CreateView):
+    login_url = '/login/'
+    redirect_field_name = 'musicplayer/track_detail.html'
+    form_class = TrackForm
+    model = Track
+
+class UpdateTrackView(LoginRequiredMixin,generic.UpdateView):
+    login_url = '/login/'
+    redirect_field_name = 'musicplayer/track_detail.html'
+    form_class = TrackForm
+    model = Track
+
+class DeleteTrackView(LoginRequiredMixin,generic.DeleteView):
+    model = Track
+    success_url = reverse_lazy('track_list')
+####
+
+class EventListView(generic.ListView):
+    model = Event
+
+class EventDetailView(generic.DetailView):
+    model = Event
+
+class CreateEventView(LoginRequiredMixin,generic.CreateView):
+    login_url = '/login/'
+    redirect_field_name = '/login/'
+    form_class = EventForm
+    model = Event
