@@ -1,9 +1,32 @@
 {% extends "musicplayer/base.html" %}
 {% block content %}
 <h1 class="musicplayertitle loader">{{track.title_id}}</h1>
+<h1 class="musicplayertitle loader">{{track.title_location}}</h1>
 <h2>Music Controls</h2>
 {% if user.is_authenticated %}
-  {% include "musicplayer/_audioplayer.html" %}
+  <!-- {% include "musicplayer/_audioplayer.html" %} -->
+  {% load staticfiles %}
+  <div class="">
+  <audio controls id="myAudio">
+    <source id="myAudioSource" src="https://doc-04-1o-docs.googleusercontent.com/docs/securesc/m7imn1c8aqfhf7gdcn8l3h8q9urnp1un/u7c550ki81vmo33pa8io88fleq4fjr4l/1565719200000/13759712319618516183/13759712319618516183/1mY5AyLJ-JYGBPvE36IKG-UgR0fFwJ4x3?e=download" type="audio/mp3">
+
+    Your browser does not support the audio element.
+  </audio>
+  <br>
+  <button onclick="playPrevious()" type="button">Previous</button>
+  <button onclick="playAudio()" type="button">Play Audio</button>
+  <button onclick="pauseAudio()" type="button">Pause Audio</button>
+  <button onclick="playNext()" type="button">Next</button>
+  <button onclick="setPosition()" type="button">Set Pointer to 5 sec</button>
+  <form class="" action="index.html" method="post" id="event-form">
+    <button type="submit">Test</button>
+  </form>
+
+  <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+  <script type="text/javascript" src="{% static 'js/audioplayer.js' %}"></script>
+
+  </div>
+
 {% endif %}
 
 {% endblock %}
