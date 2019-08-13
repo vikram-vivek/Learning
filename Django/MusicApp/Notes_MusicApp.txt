@@ -39,3 +39,8 @@ Tested music
 Created dummy records for testing
 Updated urls
 Added Song detail page with audio controls
+
+==========================
+Music_App_Project_Part_04
+==========================
+Working on links for Next Song and Previous song_list
