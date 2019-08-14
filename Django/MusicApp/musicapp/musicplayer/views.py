@@ -70,6 +70,16 @@ def register_page(request):
 
 class TrackListView(generic.ListView):
     model = Track
+    first = Track.objects.first()
+    second = next_in_order(first)
+    prev_in_order(second) == first # True
+    last = prev_in_order(first, loop=True)
+
+    def get_context_data(self,**kwargs):
+        context = super().get_context_data(**kwargs)
+        context['next_song'] = self.second
+        context['previous_song'] = self.last
+        return context    
 
 class TrackDetailView(generic.DetailView):
     model = Track

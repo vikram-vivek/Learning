@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="track-page">
+  <div class="container">
+    <div class="row">
+      {% block track_pre %}{% endblock %}
+      {% block track_content %}{% endblock %}
+      {% block track_post %}{% endblock %}
+    </div>
+  </div>
+</div>
+{% endblock %}
