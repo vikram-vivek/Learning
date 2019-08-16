@@ -1,0 +1,26 @@
+{% load staticfiles %}
+<div class="">
+<audio controls id="myAudio">
+  <!-- <source id="myAudioSource" src="{% static 'musicapp\audiofiles\Numb.mp3' %}" type="audio/mp3"> -->
+  <source id="myAudioSource" src="{{track.track_location}}" type="audio/mp3">
+
+  Your browser does not support the audio element.
+</audio>
+<br>
+<button onclick="playPrevious()" type="button">Previous</button>
+<button onclick="playAudio()" type="button">Play Audio</button>
+<button onclick="pauseAudio()" type="button">Pause Audio</button>
+<button onclick="playNext()" type="button">Next</button>
+<button onclick="setPosition()" type="button">Set Pointer to 5 sec</button>
+
+<a class="btn btn-primary" href="{{previous_song.id}}">Previous Song</a>
+
+<form  action="{% url 'track_detail' pk=next_song.id %}" method="post" id="event-form"> {% csrf_token %}
+  <input type="submit" class="btn btn-primary" value="Next Song">
+  <a class="btn btn-primary" href="{{next_song.id}}">Next Song</a>
+</form>
+
+<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+<script type="text/javascript" src="{% static 'js/audioplayer.js' %}"></script>
+
+</div>

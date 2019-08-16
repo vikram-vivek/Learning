@@ -6,6 +6,7 @@ from django.contrib.auth import authenticate,login,get_user_model
 from django.contrib.auth.decorators import login_required
 from django.views import generic
 from .models import Event,Track
+from next_prev import next_in_order, prev_in_order
 from .forms import EventForm, TrackForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
@@ -69,9 +70,30 @@ def register_page(request):
 
 class TrackListView(generic.ListView):
     model = Track
+    first = Track.objects.first()
+    second = next_in_order(first)
+    prev_in_order(second) == first # True
+    last = prev_in_order(first, loop=True)
+
+    def get_context_data(self,**kwargs):
+        context = super().get_context_data(**kwargs)
+        context['next_song'] = self.second
+        context['previous_song'] = self.last
+        return context    
 
 class TrackDetailView(generic.DetailView):
     model = Track
+    # default ordering
+    first = Track.objects.first()
+    second = next_in_order(first)
+    prev_in_order(second) == first # True
+    last = prev_in_order(first, loop=True)
+
+    def get_context_data(self,**kwargs):
+        context = super().get_context_data(**kwargs)
+        context['next_song'] = self.second
+        context['previous_song'] = self.last
+        return context
 
 class CreateTrackView(LoginRequiredMixin,generic.CreateView):
     login_url = '/login/'

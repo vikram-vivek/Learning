@@ -1,0 +1,11 @@
+{% extends "musicplayer/track_base.html" %}
+{% block content %}
+<h1 class="musicplayertitle loader">Song Name: {{track.track_id}}</h1>
+<h1 class="musicplayertitle loader">Next Song Name: {{next_song}}</h1>
+<h1 class="musicplayertitle loader">Last Song Name: {{previous_song}}</h1>
+<h2>Music Controls</h2>
+{% if user.is_authenticated %}
+  {% include "musicplayer/_audioplayer.html" %}
+{% endif %}
+
+{% endblock %}

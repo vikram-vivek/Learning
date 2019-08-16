@@ -1,5 +1,5 @@
-{% extends "musicplayer/base.html" %}
-{% block content %}
+{% extends "musicplayer/track_base.html" %}
+{% block track_content %}
 <div class="centerstage">
   {% for track in track_list %}
   <div class="track">
@@ -7,4 +7,10 @@
   </div>
   {% endfor %}
 </div>
+{% endblock %}
+
+{% block track_post %}
+  {% if user.is_authenticated %}
+    {% include "musicplayer/_audioplayer.html" %}
+  {% endif %}
 {% endblock %}

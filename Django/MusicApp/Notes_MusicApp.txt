@@ -38,3 +38,10 @@ Added models, views, login and logout urls
 Tested music
 Created dummy records for testing
 Updated urls
+Added Song detail page with audio controls
+
+==========================
+Music_App_Project_Part_04
+==========================
+Working on links for Next Song and Previous song_list
+Updated the track_base html
