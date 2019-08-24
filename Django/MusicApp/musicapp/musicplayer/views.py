@@ -79,20 +79,25 @@ class TrackListView(generic.ListView):
         context = super().get_context_data(**kwargs)
         context['next_song'] = self.second
         context['previous_song'] = self.last
-        return context    
+        return context
 
 class TrackDetailView(generic.DetailView):
     model = Track
     # default ordering
-    first = Track.objects.first()
-    second = next_in_order(first)
-    prev_in_order(second) == first # True
-    last = prev_in_order(first, loop=True)
+    #first = Track.objects.first()
+    #second = next_in_order(first)
+    #prev_in_order(second) == first # True
+    #last = prev_in_order(first, loop=True)
+
 
     def get_context_data(self,**kwargs):
         context = super().get_context_data(**kwargs)
-        context['next_song'] = self.second
-        context['previous_song'] = self.last
+        qs = Track.objects.all().order_by('id')
+        current_song = self.get_object()
+        previous_song = prev_in_order(current_song,qs=qs,loop=True)
+        next_song = next_in_order(current_song,qs=qs,loop=True)
+        context['next_song'] = next_song
+        context['previous_song'] = previous_song
         return context
 
 class CreateTrackView(LoginRequiredMixin,generic.CreateView):
@@ -123,3 +128,19 @@ class CreateEventView(LoginRequiredMixin,generic.CreateView):
     redirect_field_name = '/login/'
     form_class = EventForm
     model = Event
+
+
+def createevent(request):
+        if request.method == 'POST':
+            if request.POST.get('title') and request.POST.get('content'):
+                event=Event()
+                event.user_id= request.POST.get('user_id')
+                event.track_id= request.POST.get('track_id')
+                event.track_start_time= request.POST.get('track_start_time')
+                event.track_end_time= request.POST.get('track_end_time')
+                event.save()
+
+                return render(request, '/')
+
+        else:
+                return render(request,'/')
