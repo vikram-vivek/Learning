@@ -45,3 +45,5 @@ Music_App_Project_Part_04
 ==========================
 Working on links for Next Song and Previous song_list
 Updated the track_base html
+Next and Previous button are now Working.
+It was mandatory for the field to be Not Nullable.

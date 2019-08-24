@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 class Track(models.Model):
-    track_id = models.CharField(max_length=255,unique=True)
+    track_id = models.CharField(max_length=200,unique=True,null=False)
     track_location = models.CharField(max_length=255,unique=True)
 
     def get_absolute_url(self):

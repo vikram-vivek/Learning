@@ -7,4 +7,5 @@ urlpatterns = [
     url(r'^track/new/$',views.CreateTrackView.as_view(),name='track_new'),
     url(r'^track/(?P<pk>\d+)/edit/$',views.UpdateTrackView.as_view(),name='track_edit'),
     url(r'^track/(?P<pk>\d+)/remove/$',views.DeleteTrackView.as_view(),name='track_remove'),
+    url(r'new/event/$',views.CreateEventView.as_view(),name='create_event'),
 ]

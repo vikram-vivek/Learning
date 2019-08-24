@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+
+{% block content %}
+<h4>Create a new Event</h4>
+<form id="postForm" action="{% url 'create_event' %}" method="post">
+  {% csrf_token %}
+  {% bootstrap_form form %}
+  <input type="submit" value="Create" class='btn btn-primary btn-large'>
+
+</form>
+{% endblock %}

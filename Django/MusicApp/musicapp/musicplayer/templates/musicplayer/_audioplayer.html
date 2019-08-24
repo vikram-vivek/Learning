@@ -13,12 +13,8 @@
 <button onclick="playNext()" type="button">Next</button>
 <button onclick="setPosition()" type="button">Set Pointer to 5 sec</button>
 
+<a class="btn btn-primary" href="{{next_song.id}}">Next Song</a>
 <a class="btn btn-primary" href="{{previous_song.id}}">Previous Song</a>
-
-<form  action="{% url 'track_detail' pk=next_song.id %}" method="post" id="event-form"> {% csrf_token %}
-  <input type="submit" class="btn btn-primary" value="Next Song">
-  <a class="btn btn-primary" href="{{next_song.id}}">Next Song</a>
-</form>
 
 <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
 <script type="text/javascript" src="{% static 'js/audioplayer.js' %}"></script>
