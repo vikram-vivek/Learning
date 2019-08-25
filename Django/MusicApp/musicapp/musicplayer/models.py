@@ -1,4 +1,6 @@
 from django.db import models
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 
 # Create your models here.
 class Track(models.Model):
@@ -18,7 +20,4 @@ class Event(models.Model):
     track_end_time = models.DateTimeField(blank=True,null=True)
 
     def get_absolute_url(self):
-        return reverse("event_detail",kwargs={'pk':self.pk})
-
-    def __str__(self):
-        return self.track_id
+        return reverse("musicplayer:event_detail",kwargs={'pk':self.pk})

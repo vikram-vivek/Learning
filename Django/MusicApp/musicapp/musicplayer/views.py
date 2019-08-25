@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse,HttpResponseRedirect,JsonResponse
 import os
 from .forms import LoginForm,RegisterForm
 from django.contrib.auth import authenticate,login,get_user_model
@@ -10,6 +10,7 @@ from next_prev import next_in_order, prev_in_order
 from .forms import EventForm, TrackForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
+
 # Create your views here.
 def index(request):
     context = {
@@ -89,7 +90,6 @@ class TrackDetailView(generic.DetailView):
     #prev_in_order(second) == first # True
     #last = prev_in_order(first, loop=True)
 
-
     def get_context_data(self,**kwargs):
         context = super().get_context_data(**kwargs)
         qs = Track.objects.all().order_by('id')
@@ -99,6 +99,11 @@ class TrackDetailView(generic.DetailView):
         context['next_song'] = next_song
         context['previous_song'] = previous_song
         return context
+
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        context = self.get_context_data(object=self.object)
+        return self.render_to_response(context)
 
 class CreateTrackView(LoginRequiredMixin,generic.CreateView):
     login_url = '/login/'
@@ -131,16 +136,31 @@ class CreateEventView(LoginRequiredMixin,generic.CreateView):
 
 
 def createevent(request):
+        print("Inside create event function")
+        print(request)
+        print(request.POST.get('user_id'))
+        # return HttpResponseRedirect(request.path_info)
+        data={}
+        print(request.POST.get('track'))
         if request.method == 'POST':
-            if request.POST.get('title') and request.POST.get('content'):
-                event=Event()
-                event.user_id= request.POST.get('user_id')
-                event.track_id= request.POST.get('track_id')
-                event.track_start_time= request.POST.get('track_start_time')
-                event.track_end_time= request.POST.get('track_end_time')
-                event.save()
-
-                return render(request, '/')
-
+            event=Event()
+            # track=Track()
+            event.user_id= request.user#request.POST.get('user_id')
+            # event.track_id= request.POST.get('track')
+            event.track_id= Track.objects.get(track_id=request.POST.get('track'))
+            event.track_start_time= request.POST.get('track_start_time')
+            event.track_end_time= request.POST.get('track_end_time')
+            event.save()
+            print("Event created")
+            data['message'] = 'Event added.'
+            # return HttpResponseRedirect(request.path_info)
         else:
-                return render(request,'/')
+            data['message'] = 'Event was not added.'
+            # return HttpResponseRedirect(request.path_info)
+
+        return JsonResponse(data)
+
+
+
+class EventDetailView(generic.DetailView):
+    model = Event
