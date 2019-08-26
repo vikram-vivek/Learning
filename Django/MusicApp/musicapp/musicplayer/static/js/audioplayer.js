@@ -1,8 +1,8 @@
 var x = document.getElementById("myAudio");
 var y = document.getElementById("current_song");
 var z = document.getElementById("myAudioSource");
-var startTime=0;
-var stopTime=0;
+var startTime=new Date().toISOString();
+var stopTime=new Date().toISOString();
 
 // x.addEventListener('timeupdate',function(){
 //     var currentTimeMs = x.currentTime*1000;
@@ -21,14 +21,16 @@ function setPosition() {
 };
 
 function playAudio() {
-  startTime=getAudioCurrentTime();
+  // startTime=getAudioCurrentTime();
   x.play();
+  startTime = new Date().toISOString();
   console.log(startTime);
 };
 
 function pauseAudio() {
   x.pause();
-  stopTime=getAudioCurrentTime();
+  stopTime = new Date().toISOString();
+  // stopTime=getAudioCurrentTime();
   console.log(stopTime);
 };
 
@@ -83,8 +85,10 @@ $("#button-play").click(function(event) {
             user_id: "admin",
             track_id: "Numb",
             track: form.attr("track-info"),
-            track_start_time: "2019-08-25 03:40:26.260524",
-            track_end_time: "2019-08-25 03:45:26.260524",
+            // track_start_time: "2019-08-25 03:40:26.260524",
+            // track_end_time: "2019-08-25 03:45:26.260524",
+            track_start_time: startTime,
+            track_end_time: stopTime,
             csrfmiddlewaretoken: $("input[name='csrfmiddlewaretoken']").val(),
         },
         success: function(result) {
