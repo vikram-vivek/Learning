@@ -1,6 +1,7 @@
 import os
 from config import db
 from models import Movie
+import json
 
 # Data to initialize database with
 MOVIE = [
@@ -49,13 +50,15 @@ if os.path.exists("movie.db"):
 # Create the database
 db.create_all()
 
-# iterate over the MOVIE structure and populate the database
-for movie in MOVIE:
-    lgenre = movie.get("genre")
-    lgenre = [x.strip() for x in lgenre]
-    sorted(lgenre)
-    str_genre = ', '.join(lgenre)
-    m = Movie(popularity=movie.get("popularity"), director=movie.get("director"),genre=str_genre, imdb_score=movie.get("imdb_score"),name=movie.get("name"))
-    db.session.add(m)
+with open('imdb.json') as json_file:
+    MOVIE = json.load(json_file)
+    # iterate over the MOVIE structure and populate the database
+    for movie in MOVIE:
+        lgenre = movie.get("genre")
+        lgenre = [x.strip() for x in lgenre]
+        sorted(lgenre)
+        str_genre = ', '.join(lgenre)
+        m = Movie(popularity=movie.get("99popularity"), director=movie.get("director"),genre=str_genre, imdb_score=movie.get("imdb_score"),name=movie.get("name"))
+        db.session.add(m)
 
 db.session.commit()

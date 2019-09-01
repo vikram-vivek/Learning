@@ -15,3 +15,13 @@ DB connection done
 
 Next Step Populating DB with dummy data
 and Search Functionality
+
+activate IMDB_Env
+
+==========================
+IMDB_Clone_Project_Part_03
+==========================
+DB dummy dta papulated
+Search functionality done
+
+Next add authentication and deployment

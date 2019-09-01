@@ -91,6 +91,48 @@ def read_one(movie_id):
             404, "Movie not found for Id: {movie_id}".format(movie_id=movie_id)
         )
 
+
+def search(movie):
+    """
+    This function creates a new movie in the MOVIE structure
+    based on the passed in movie data
+
+    :param movie:   movie to create in MOVIE structure
+    :return:        201 on success, 406 on movie exists
+    """
+    popularity = movie.get("popularity", None)
+    director = movie.get("director", None)
+    genre = movie.get("genre", None)
+    imdb_score = movie.get("imdb_score", None)
+    name = movie.get("name", None)
+    movie_id = movie.get("movie_id", None)
+
+    filtered_movie = Movie.query.filter(
+        (Movie.movie_id == (movie_id if movie_id is not '' else Movie.movie_id))
+        &
+        (Movie.popularity == (popularity if popularity is not '' else Movie.popularity))
+        &
+        (Movie.genre.ilike(str("%"+genre+"%") if genre is not '' else Movie.genre))
+        &
+        (Movie.imdb_score == (imdb_score if imdb_score is not '' else Movie.imdb_score))
+        &
+        (Movie.name == (name if name is not '' else Movie.name))
+        &
+        (Movie.director == (director if director is not '' else Movie.director))
+        ).all()
+    print("Here is the Value")
+    print(filtered_movie)
+    if filtered_movie is not None:
+        # Serialize the data for the response
+        movie_schema = MovieSchema(many=True)
+        data = movie_schema.dump(filtered_movie)#.data
+        return data
+    else:
+        abort(
+            404, "No Movie for the requested conditions Id: {movie_id}".format(movie_id=movie_id)
+        )
+
+
 def create(movie):
     """
     This function creates a new movie in the MOVIE structure

@@ -90,6 +90,30 @@ ns.model = (function() {
                 $event_pump.trigger('model_error', [xhr, textStatus, errorThrown]);
             })
         },
+        search: function(popularity, director, genre, imdb_score, name, movie_id) {
+            let ajax_options = {
+                type: 'POST',
+                url: 'api/movie/search',
+                accepts: 'application/json',
+                contentType: 'application/json',
+                dataType: 'json',
+                data: JSON.stringify({
+                    'popularity': popularity,
+                    'director': director,
+                    'genre': genre,
+                    'imdb_score': imdb_score,
+                    'name': name,
+                    'movie_id':movie_id
+                })
+            };
+            $.ajax(ajax_options)
+            .done(function(data) {
+                $event_pump.trigger('model_search_success', [data]);
+            })
+            .fail(function(xhr, textStatus, errorThrown) {
+                $event_pump.trigger('model_error', [xhr, textStatus, errorThrown]);
+            })
+        },
     };
 }());
 
@@ -221,7 +245,25 @@ ns.controller = (function(m, v) {
 
     $('#reset').click(function() {
         view.reset();
-    })
+    });
+
+    $('#search').click(function(e) {
+        let popularity = $popularity.val(),
+            director = $director.val(),
+            genre = $genre.val(),
+            imdb_score = $imdb_score.val(),
+            name = $name.val(),
+            movie_id = $movie_id.val();
+
+        e.preventDefault();
+        model.search(popularity, director, genre, imdb_score, name, movie_id)
+        // console.log('Create clicked ',popularity,director, genre, imdb_score, name)
+        // if (validate(popularity, director, genre, imdb_score, name)) {
+        //     model.search(popularity, director, genre, imdb_score, name)
+        // } else {
+        //     alert('Problem with first or last name input');
+        // }
+    });
 
     $('table > tbody').on('dblclick', 'tr', function(e) {
         let $target = $(e.target),
@@ -283,6 +325,12 @@ ns.controller = (function(m, v) {
     $event_pump.on('model_delete_success', function(e, data) {
         model.read();
     });
+
+    $event_pump.on('model_search_success', function(e, data) {
+      view.build_table(data);
+      view.reset();
+    });
+
 
     $event_pump.on('model_error', function(e, xhr, textStatus, errorThrown) {
         let error_msg = textStatus + ': ' + errorThrown + ' - ' + xhr.responseJSON.detail;
