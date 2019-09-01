@@ -7,3 +7,11 @@ IMDB_Clone_Project_Part_01
 Set up of CRUD operations
 
 Next Step creating DB connection
+
+==========================
+IMDB_Clone_Project_Part_02
+==========================
+DB connection done
+
+Next Step Populating DB with dummy data
+and Search Functionality

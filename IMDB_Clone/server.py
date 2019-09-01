@@ -4,22 +4,24 @@ Main module of the server file
 
 # 3rd party moudles
 from flask import render_template
-import connexion
+
+# local modules
+import config
 
 
-# Create the application instance
-app = connexion.App(__name__, specification_dir="./")
+# Get the application instance
+connex_app = config.connex_app
 
 # Read the swagger.yml file to configure the endpoints
-app.add_api("swagger.yml")
+connex_app.add_api("swagger.yml")
 
 
 # create a URL route in our application for "/"
-@app.route("/")
+@connex_app.route("/")
 def home():
     """
     This function just responds to the browser URL
-    localhost:5000/
+    localhost:8000/
 
     :return:        the rendered template "home.html"
     """
@@ -27,4 +29,4 @@ def home():
 
 
 if __name__ == "__main__":
-    app.run(host= '127.0.0.1',port='8000',debug=True)
+    connex_app.run(host= '127.0.0.1',port='8000',debug=True)

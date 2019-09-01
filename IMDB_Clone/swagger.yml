@@ -37,6 +37,8 @@ paths:
             type: array
             items:
               properties:
+                movie_id:
+                  type: string
                 popularity:
                   type: string
                 director:
@@ -75,7 +77,7 @@ paths:
         201:
           description: Successfully created person in list
 
-  /movie/{name}:
+  /movie/{movie_id}:
       get:
         operationId: movie.read_one
         tags:
@@ -83,16 +85,18 @@ paths:
         summary: Read one person from the people list
         description: Read one person from the people list
         parameters:
-          - name: name
+          - name: movie_id
             in: path
             description: Last name of the person to get from the list
-            type: string
+            type: integer
             required: True
         responses:
           200:
             description: Successfully read person from people list operation
             schema:
               properties:
+                movie_id:
+                  type: string
                 popularity:
                   type: string
                 director:
@@ -111,10 +115,10 @@ paths:
         summary: Update a person in the people list
         description: Update a person in the people list
         parameters:
-          - name: name
+          - name: movie_id
             in: path
             description: Last name of the person to update in the list
-            type: string
+            type: integer
             required: True
           - name: movie
             in: body
@@ -141,9 +145,9 @@ paths:
         summary: Delete a person from the people list
         description: Delete a person
         parameters:
-          - name: name
+          - name: movie_id
             in: path
-            type: string
+            type: integer
             required: True
         responses:
           200:

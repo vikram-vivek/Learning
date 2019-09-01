@@ -52,10 +52,10 @@ ns.model = (function() {
                 $event_pump.trigger('model_error', [xhr, textStatus, errorThrown]);
             })
         },
-        update: function(popularity, director, genre, imdb_score, name) {
+        update: function(popularity, director, genre, imdb_score, name, movie_id) {
             let ajax_options = {
                 type: 'PUT',
-                url: 'api/movie/' + name,
+                url: 'api/movie/' + movie_id,
                 accepts: 'application/json',
                 contentType: 'application/json',
                 dataType: 'json',
@@ -101,6 +101,7 @@ ns.view = (function() {
         $director = $('#director'),
         $genre = $('#genre'),
         $imdb_score = $('#imdb_score'),
+        $movie_id = $('#movie_id'),
         $name = $('#name');
 
     // return the API
@@ -110,13 +111,15 @@ ns.view = (function() {
             $director.val('');
             $genre.val('');
             $imdb_score.val('');
+            $movie_id.val('');
             $name.val('').focus();
         },
-        update_editor: function(popularity, director, genre, imdb_score, name) {
+        update_editor: function(popularity, director, genre, imdb_score, name, movie_id) {
             $popularity.val(popularity);
             $director.val(director);
             $genre.val(genre);
             $imdb_score.val(imdb_score);
+            $movie_id.val(movie_id);
             $name.val(name).focus();
         },
         build_table: function(movie) {
@@ -128,7 +131,7 @@ ns.view = (function() {
             // did we get a movie array?
             if (movie) {
                 for (let i=0, l=movie.length; i < l; i++) {
-                    rows += `<tr><td class="popularity">${movie[i].popularity}</td><td class="director">${movie[i].director}</td><td class="genre">${movie[i].genre}</td><td class="imdb_score">${movie[i].imdb_score}</td><td class="name">${movie[i].name}</td></tr>`;
+                    rows += `<tr><td class="movie_id">${movie[i].movie_id}</td><td class="popularity">${movie[i].popularity}</td><td class="director">${movie[i].director}</td><td class="genre">${movie[i].genre}</td><td class="imdb_score">${movie[i].imdb_score}</td><td class="name">${movie[i].name}</td></tr>`;
                 }
                 $('table > tbody').append(rows);
             }
@@ -155,6 +158,7 @@ ns.controller = (function(m, v) {
         $director = $('#director'),
         $genre = $('#genre'),
         $imdb_score = $('#imdb_score'),
+        $movie_id = $('#movie_id'),
         $name = $('#name');
 
     // Get the data from the model after the controller is done initializing
@@ -189,12 +193,13 @@ ns.controller = (function(m, v) {
             director = $director.val(),
             genre = $genre.val(),
             imdb_score = $imdb_score.val(),
-            name = $name.val();
+            name = $name.val(),
+            movie_id = $movie_id.val();
 
         e.preventDefault();
-        console.log('Update clicked ',popularity,director, genre, imdb_score, name)
+        console.log('Update clicked ',popularity,director, genre, imdb_score, name, movie_id)
         if (validate(popularity, director, genre, imdb_score, name)) {
-            model.update(popularity, director, genre, imdb_score, name)
+            model.update(popularity, director, genre, imdb_score, name, movie_id)
         } else {
             alert('Problem with first or last name input');
         }
@@ -224,7 +229,8 @@ ns.controller = (function(m, v) {
             director,
             genre,
             imdb_score,
-            name;
+            name,
+            movie_id;
 
         popularity = $target
             .parent()
@@ -251,8 +257,13 @@ ns.controller = (function(m, v) {
             .find('td.name')
             .text();
 
+        movie_id = $target
+            .parent()
+            .find('td.movie_id')
+            .text();
 
-        view.update_editor(popularity, director, genre, imdb_score, name);
+
+        view.update_editor(popularity, director, genre, imdb_score, name, movie_id);
     });
 
     // Handle the model events
