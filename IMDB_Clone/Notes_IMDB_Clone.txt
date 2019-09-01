@@ -1,0 +1,9 @@
+IMDB Clone Notes
+================
+
+==========================
+IMDB_Clone_Project_Part_01
+==========================
+Set up of CRUD operations
+
+Next Step creating DB connection
