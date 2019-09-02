@@ -25,3 +25,6 @@ DB dummy dta papulated
 Search functionality done
 
 Next add authentication and deployment
+
+pip install flask-migrate --upgrade
+
