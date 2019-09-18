@@ -1,0 +1,26 @@
+API DRF Django Notes
+==========================
+Setup
+==========================
+Python 3.6
+Django 1.11
+Bootstrap 3.3.7
+
+==========================
+API_DRF_Project_Part_01
+==========================
+##Creating Virutal Env
+conda create -n DRF_API_Env python=3.6 django=1.11
+
+##Activate env
+activate DRF_API_Env
+
+pip install djangorestframework
+
+##Start Project
+django-admin startproject djangorest
+
+cd djangorest
+
+##Start App
+python manage.py startapp api

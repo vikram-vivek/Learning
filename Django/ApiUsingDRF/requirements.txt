@@ -1,0 +1,5 @@
+certifi==2019.6.16
+Django==1.11.10
+djangorestframework==3.10.3
+pytz==2019.2
+wincertstore==0.2
